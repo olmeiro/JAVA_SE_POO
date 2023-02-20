@@ -1,19 +1,19 @@
 public class Doctor {
     static int id = 0; //Autoincrement
     String name;
+    String email;
     String speciality;
 
-    Doctor(String name, String speciality) {
+    Doctor() {
         System.out.println("Contruyendo obj Doctor.");
+    }
+
+    Doctor(String name, String speciality) {
         id++;
         this.name = name;
         this.speciality = speciality;
-    }
 
-    Doctor(String name) {
-        id++;
-        this.name = name;
-        System.out.println("El nombre del doctor es: " + name);
+        System.out.println("El nombre del doctor es: " + name + " Especialidad: " + speciality);
     }
 
     public void showName() {
