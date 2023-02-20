@@ -1,3 +1,5 @@
+import java.util.Date;
+
 import static UI.UIMenu.*;
 
 public class Main {
@@ -66,6 +68,15 @@ public class Main {
         System.out.println(patient2.getName());
 
 
+        //usando clase anidada en Doctor:
+        Doctor doctorHouse = new Doctor("House", "Whatever");
+        doctorHouse.addAvailableAppointment(new Date(), "10am");
+        doctorHouse.addAvailableAppointment(new Date(), "1pm");
 
+        System.out.println(doctorHouse.getAvailableAppointments());
+
+        for(Doctor.AvailableAppointment aA: doctorHouse.getAvailableAppointments()){
+            System.out.println(aA.getDate() + " " + aA.getTime());
+        }
     }
 }
