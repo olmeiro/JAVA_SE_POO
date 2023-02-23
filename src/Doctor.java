@@ -1,6 +1,12 @@
 import java.util.ArrayList;
 import java.util.Date;
 
+/**
+ * Doctor appointments
+ * show disponibility of instance of doctor class to patient wants to separate appointment with them
+ * @author Olmeiro Orozco / myself
+ * @version 0.1, 203/02/01
+ */
 public class Doctor {
     static int id = 0; //Autoincrement
     private String name;

@@ -75,8 +75,29 @@ public class Main {
 
         System.out.println(doctorHouse.getAvailableAppointments());
 
-        for(Doctor.AvailableAppointment aA: doctorHouse.getAvailableAppointments()){
+        for (Doctor.AvailableAppointment aA : doctorHouse.getAvailableAppointments()) {
             System.out.println(aA.getDate() + " " + aA.getTime());
         }
+
+        //enumerations:
+        System.out.println("ENUM-Monday: " + Day.MONDAY);
+        System.out.println("ENUM-Monday-spanish: " + Day.MONDAY.getSpanish());
+        System.out.println("ENUM-Monday-french: " + Day.MONDAY.getFrench());
+
+        Day sunday = Day.SUNDAY;
+
+        if (sunday == Day.MONDAY) {
+            System.out.println("Day off");
+        } else {
+            System.out.println("working day!");
+        }
+
+        Day allDays[] = Day.values();
+
+        for (Day d : allDays) {
+            System.out.println(d);
+        }
+
+        System.out.println(Day.SATURDAY.ordinal());
     }
 }
