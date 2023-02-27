@@ -1,46 +1,11 @@
-public class Patient {
-    private String name;
-    String email;
-    String address;
-    String phoneNumber;
-    String birthday;
+public class Patient extends User {
+    private String birthday;
     private Double weight;
     private Double height;
+    private String blood;
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        if(phoneNumber.length() > 8){
-            System.out.println("El Número teléfonico debe ser de 8 digitos.");
-        }else if(phoneNumber.length() == 8){
-            this.phoneNumber = phoneNumber;
-        }
+    public Patient(String name, String email) {
+        super(name, email);
     }
 
     public String getBirthday() {
@@ -75,10 +40,4 @@ public class Patient {
         this.blood = blood;
     }
 
-    String blood;
-
-    public Patient(String name, String email) {
-        this.name = name;
-        this.email = email;
-    }
 }

@@ -7,42 +7,23 @@ import java.util.Date;
  * @author Olmeiro Orozco / myself
  * @version 0.1, 203/02/01
  */
-public class Doctor {
-    static int id = 0; //Autoincrement
-    private String name;
-    private String email;
+public class Doctor extends User {
     private String speciality;
 
-    Doctor() {
-        System.out.println("Contruyendo obj Doctor.");
-    }
-
-    Doctor(String name, String speciality) {
-        id++;
-        this.name = name;
+    Doctor(String name, String email) {
+        super(name, email);
+        System.out.println("El nombre del Doctor asignado es: " + name);
         this.speciality = speciality;
-
-        System.out.println("El nombre del doctor es: " + name + " Especialidad: " + speciality);
     }
 
-    public void showName() {
-        System.out.println("name doctor: " + name);
+    public void setSpeciality(String speciality) {
+        this.speciality = speciality;
     }
 
-    public void showSpeciality() {
-        System.out.println("especialidad: " + speciality);
+    public String getSpeciality() {
+        return speciality;
     }
 
-    public void showId() {
-        System.out.println("ID Doctor: " + id);
-    }
-
-    //Usando una clase anidada:
-    //fechas disponibles del doctor para citas: un doctor puede tener muchas citas
-    //disponibles. Para hacerlo creariamos un array con las citas cosa que no se hace
-    //escalable, por ello mejor usamos una clase anidada y ahora sí usamos el arrayList
-
-    //Métodos para usar la clase anidada:
     ArrayList<AvailableAppointment> availableAppointments = new ArrayList<>();
     public void addAvailableAppointment(Date date, String time) {
         availableAppointments.add(new Doctor.AvailableAppointment(date, time));
