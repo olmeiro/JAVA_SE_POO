@@ -55,4 +55,11 @@ public class User {
             this.phoneNumber = phoneNumber;
         }
     }
+
+    //sobreescritura de toString
+
+    @Override
+    public String toString() {
+        return "User: " + name + ", Email: " + email + "\nAddrees: "+ address + ".Phone: " + phoneNumber;
+    }
 }

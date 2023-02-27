@@ -12,13 +12,16 @@ public class Main {
         otherDoctor.setSpeciality("radiología");
         System.out.println(otherDoctor.getSpeciality());
 
+        System.out.println();
+        System.out.println(myDoctor);
+
         Patient patient = new Patient("Alejandra", "aleja@gmail.com");
         patient.setWeight(54.6);
         patient.setPhoneNumber("12345678");
+        patient.setAddress("calle 20");
+        patient.setBirthday("9/05/1989");
         System.out.println();
-        System.out.println(patient.getName());
-        System.out.println(patient.getWeight());
-        System.out.println(patient.getPhoneNumber());
+        System.out.println(patient);
 
     }
 }
