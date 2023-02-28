@@ -1,6 +1,11 @@
-import java.util.Date;
+import Model.AppointmentDoctor;
+import Model.Doctor;
+import Model.IScheduleable;
+import Model.Patient;
 
-import static UI.UIMenu.*;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Date;
 
 public class Main {
     public static void main(String[] args) {
@@ -22,6 +27,11 @@ public class Main {
         patient.setBirthday("9/05/1989");
         System.out.println();
         System.out.println(patient);
+
+        //Doctor Appointments
+        AppointmentDoctor appointmentDoctorSchedule = new AppointmentDoctor();
+        appointmentDoctorSchedule.schedule(new Date(2023, 12, 21), "10:00");
+
 
     }
 }

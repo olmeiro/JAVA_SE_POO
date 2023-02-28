@@ -1,3 +1,5 @@
+package Model;
+
 import org.w3c.dom.ls.LSOutput;
 
 public class User {
@@ -60,6 +62,6 @@ public class User {
 
     @Override
     public String toString() {
-        return "User: " + name + ", Email: " + email + "\nAddrees: "+ address + ".Phone: " + phoneNumber;
+        return "Model.User: " + name + ", Email: " + email + "\nAddrees: "+ address + ".Phone: " + phoneNumber;
     }
 }

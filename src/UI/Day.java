@@ -1,3 +1,5 @@
+package UI;
+
 public enum Day {
     SUNDAY("Domingo", "Dimanche"),
 

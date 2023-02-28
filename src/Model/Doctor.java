@@ -1,8 +1,10 @@
+package Model;
+
 import java.util.ArrayList;
 import java.util.Date;
 
 /**
- * Doctor appointments
+ * Model.Doctor appointments
  * show disponibility of instance of doctor class to patient wants to separate appointment with them
  * @author Olmeiro Orozco / myself
  * @version 0.1, 203/02/01
@@ -10,9 +12,9 @@ import java.util.Date;
 public class Doctor extends User {
     private String speciality;
 
-    Doctor(String name, String email) {
+    public Doctor(String name, String email) {
         super(name, email);
-        System.out.println("El nombre del Doctor asignado es: " + name);
+        System.out.println("El nombre del Model.Doctor asignado es: " + name);
         this.speciality = speciality;
     }
 

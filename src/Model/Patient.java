@@ -1,3 +1,5 @@
+package Model;
+
 public class Patient extends User {
     private String birthday;
     private Double weight;
