@@ -1,35 +1,30 @@
-import Model.AppointmentDoctor;
-import Model.Doctor;
-import Model.IScheduleable;
-import Model.Patient;
-
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.util.Date;
+import java.util.Set;
+import java.util.HashSet;
 
 public class Main {
     public static void main(String[] args) {
-        Doctor myDoctor = new Doctor("Alenjadra Lópex", "alejalopex@gmail.com");
-        myDoctor.setSpeciality("cardiología");
-        System.out.println(myDoctor.getSpeciality());
 
-        Doctor otherDoctor = new Doctor("Sara Saldarriage", "sarasalda@gmail.com");
-        otherDoctor.setSpeciality("radiología");
-        System.out.println(otherDoctor.getSpeciality());
+        Cliente cl1 = new Cliente("Antonio Banderas", "00001", 200000);
+        Cliente cl2 = new Cliente("Rafael Nadal", "00002", 250000);
+        Cliente cl3 = new Cliente("Sandra Bullock", "00003", 300000);
+        Cliente cl4 = new Cliente("Julio Iglesias", "00004", 800000);
 
-        System.out.println();
-        System.out.println(myDoctor);
+        /*
+        collection: de objeto de tipo Cliente, que no se repiten, tiene operaciones de agregación y eliminacion, también operaciones de lectura. no hay necesidad de ordenación por el momento.
+        */
 
-        Patient patient = new Patient("Alejandra", "aleja@gmail.com");
-        patient.setWeight(54.6);
-        patient.setPhoneNumber("12345678");
-        patient.setAddress("calle 20");
-        patient.setBirthday("9/05/1989");
-        System.out.println();
-        System.out.println(patient);
+        /*HashSet es la clase que implementa Set ya que no podemos instanciarla por ser static*/
+        Set<Cliente> clientesBanco = new HashSet<>();
 
-        //Doctor Appointments
-        AppointmentDoctor appointmentDoctorSchedule = new AppointmentDoctor();
-        appointmentDoctorSchedule.schedule(new Date(2023, 12, 21), "10:00");
+        /*Agregando a la colección*/
+        clientesBanco.add(cl1);
+        clientesBanco.add(cl2);
+        clientesBanco.add(cl3);
+        clientesBanco.add(cl4);
+
+        /*Recorriendo colección  con for - each: */
+        for (Cliente cliente: clientesBanco) {
+            System.out.println(cliente.getName() + " " + cliente.getN_cuenta() + " " + cliente.getSaldo());
+        }
     }
 }
