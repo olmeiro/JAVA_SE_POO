@@ -31,7 +31,5 @@ public class Main {
         //Doctor Appointments
         AppointmentDoctor appointmentDoctorSchedule = new AppointmentDoctor();
         appointmentDoctorSchedule.schedule(new Date(2023, 12, 21), "10:00");
-
-
     }
 }
