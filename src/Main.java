@@ -1,3 +1,4 @@
+import java.util.Iterator;
 import java.util.Set;
 import java.util.HashSet;
 
@@ -28,31 +29,34 @@ public class Main {
         clientesBanco.add(cl5);
 
         /*Recorriendo colección  con for - each: */
-        for (Cliente cliente: clientesBanco) {
-            System.out.println(cliente.getName() + " " + cliente.getN_cuenta() + " " + cliente.getSaldo());
+      /*  for (Cliente cliente: clientesBanco) {
+            if(cliente.getName().equals("Julio Iglesias")){
+                clientesBanco.remove(cliente); //no podemos eliminar mientras recorremos la colección con el for-each (problema de concurrencia) más fácil con iterator
+            }
+        }*/
+
+        //Borrando con un iterator
+        Iterator<Cliente> it = clientesBanco.iterator();
+
+        while (it.hasNext()) {
+            String nombre_cliente = it.next().getName();
+            if (nombre_cliente == "Julio Iglesias") {
+                it.remove();
+            }
         }
 
-        System.out.println();
-        //Usando hashCode y equals con la clase Book:
-        Book libro1 = new Book("Programación en JAVA", "Juan", 25);
-        Book libro2 = new Book("Programación en JAVA", "Juan", 25);
-
-        //hagamos libro1 = libro2
-        // libro1 = libro2;
-
-        System.out.println("libro1 = libro2: " + libro1.equals(libro2));
-
-        /*Solución para comparar por hashCode*/
-        if(libro1.equals(libro2)){
-            System.out.println("Es el mismo libro");
-            System.out.println(libro1.hashCode());
-            System.out.println(libro2.hashCode());
-        }else{
-            System.out.println("No es el mismo libro");
-            System.out.println(libro1.hashCode());
-            System.out.println(libro2.hashCode());
+        for (Cliente clienteBank : clientesBanco) {
+            System.out.println(clienteBank.getName() + " " + clienteBank.getN_cuenta() + " " + clienteBank.getSaldo());
         }
 
+        //Recorriendo con un iterador:
+        /*Iterator<Cliente> it = clientesBanco.iterator(); //it recorrera la colección
+        while(it.hasNext()){
+            String nombre_cliente = it.next().getName();
+            System.out.println("Nombre cliente: " + nombre_cliente);
+
+            String n_cuenta = it.next().getN_cuenta(); //esto es un error pues al llamar next() estamos llamando al siguiente elemento en la coleccion que no es el dato que buscamos.
+        }*/
 
     }
 }
