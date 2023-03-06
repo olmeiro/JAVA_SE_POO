@@ -4,42 +4,57 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
 
-        LinkedList<String> personas = new LinkedList<String>();
+        LinkedList<String> paises = new LinkedList<String>();
 
-        //Agregando elementos:
-        personas.add("Aleja");
-        personas.add("Sandra");
-        personas.add("Milena");
-        personas.add("Laura");
+        paises.add("España");
+        paises.add("Colombia");
+        paises.add("Mexico");
+        paises.add("Perú");
 
-        //length de la LinkedList
-        System.out.println(personas.size());
+        LinkedList<String> capitales = new LinkedList<String>();
 
-        //Orden de la LinkedList: mismo orden en que se agregaron
-//        personas.add("Juan"); //aqui lo agrega al final
+        capitales.add("Madrid");
+        capitales.add("Bogotá");
+        capitales.add("Ciudad de México");
+        capitales.add("Lima");
 
-        //Agregando en otras posiciones: mejor con iteradores
-        //tenemos ListIterator para listas
+//        System.out.println(paises);
+//        System.out.println(capitales);
 
-        ListIterator<String> itList = personas.listIterator();
+        //  Agregamos capitales a paises, en orden pais-capital
+        // Usamos iterator:
+        ListIterator<String> iterPaises = paises.listIterator();
+        ListIterator<String> iterCapitales = capitales.listIterator();
 
-        itList.next();//desplaza una posición adelante en la lista. posición 1
-
-        itList.add("Juan");
-
-        //iterando:
-        for (String persona : personas) {
-            System.out.println(persona);
+        //Agregamos capitales a paises:
+        while (iterCapitales.hasNext()) {
+            if (iterPaises.hasNext()) {
+                iterPaises.next(); //salta al siguiente elemento
+            }
+            iterPaises.add(iterCapitales.next()); //agrega el sigte elemento de capitales a continuación del elemento en paises.
         }
 
-        //Orden de la LinkedList: mismo orden en que se agregaron
+        System.out.println(paises); //LinkedList agregado
 
-        //Agregando en otras posiciones: mejor con iteradores
-        //tenemos ListIterator para listas
+        //Eliminar posiciones pares de LinkedList capitales:
+        // el iterador está en la última posición pues usamos next() - debemos devolverlo iniciando el iterador de nuevo:
 
+        iterCapitales = capitales.listIterator();
 
+        //eliminar:
+        while (iterCapitales.hasNext()) {
+            iterCapitales.next();
 
+            if (iterCapitales.hasNext()) { //hay una siguiente posición?
+                iterCapitales.next();
+                iterCapitales.remove();
+            }
+        }
 
+        System.out.println(capitales);
+        paises.removeAll(capitales); //actualizamos paises segun lo que borramos en capitales con removeAll
+        System.out.println();
+        System.out.println(paises);
 
     }
 }
