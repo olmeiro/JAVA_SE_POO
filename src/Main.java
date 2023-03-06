@@ -1,62 +1,45 @@
-import java.util.Iterator;
-import java.util.Set;
-import java.util.HashSet;
+
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
 
-        Cliente cl1 = new Cliente("Antonio Banderas", "00001", 200000);
-        Cliente cl2 = new Cliente("Rafael Nadal", "00002", 250000);
-        Cliente cl3 = new Cliente("Sandra Bullock", "00003", 300000);
-        Cliente cl4 = new Cliente("Julio Iglesias", "00004", 800000);
-        /*
-            Cl5 es una copia identica de cl4 en cuanto a datos no en cuanto a objetos por ello el método add lo agrega. (son objetos diferentes)
-        * */
-        Cliente cl5 = new Cliente("Julio Iglesias", "00004", 800000);
+        LinkedList<String> personas = new LinkedList<String>();
 
-        /*
-        collection: de objeto de tipo Cliente, que no se repiten, tiene operaciones de agregación y eliminacion, también operaciones de lectura. no hay necesidad de ordenación por el momento.
-        */
+        //Agregando elementos:
+        personas.add("Aleja");
+        personas.add("Sandra");
+        personas.add("Milena");
+        personas.add("Laura");
 
-        /*HashSet es la clase que implementa Set ya que no podemos instanciarla por ser static*/
-        Set<Cliente> clientesBanco = new HashSet<>();
+        //length de la LinkedList
+        System.out.println(personas.size());
 
-        /*Agregando a la colección*/
-        clientesBanco.add(cl1);
-        clientesBanco.add(cl2);
-        clientesBanco.add(cl3);
-        clientesBanco.add(cl4);
-        clientesBanco.add(cl5);
+        //Orden de la LinkedList: mismo orden en que se agregaron
+//        personas.add("Juan"); //aqui lo agrega al final
 
-        /*Recorriendo colección  con for - each: */
-      /*  for (Cliente cliente: clientesBanco) {
-            if(cliente.getName().equals("Julio Iglesias")){
-                clientesBanco.remove(cliente); //no podemos eliminar mientras recorremos la colección con el for-each (problema de concurrencia) más fácil con iterator
-            }
-        }*/
+        //Agregando en otras posiciones: mejor con iteradores
+        //tenemos ListIterator para listas
 
-        //Borrando con un iterator
-        Iterator<Cliente> it = clientesBanco.iterator();
+        ListIterator<String> itList = personas.listIterator();
 
-        while (it.hasNext()) {
-            String nombre_cliente = it.next().getName();
-            if (nombre_cliente == "Julio Iglesias") {
-                it.remove();
-            }
+        itList.next();//desplaza una posición adelante en la lista. posición 1
+
+        itList.add("Juan");
+
+        //iterando:
+        for (String persona : personas) {
+            System.out.println(persona);
         }
 
-        for (Cliente clienteBank : clientesBanco) {
-            System.out.println(clienteBank.getName() + " " + clienteBank.getN_cuenta() + " " + clienteBank.getSaldo());
-        }
+        //Orden de la LinkedList: mismo orden en que se agregaron
 
-        //Recorriendo con un iterador:
-        /*Iterator<Cliente> it = clientesBanco.iterator(); //it recorrera la colección
-        while(it.hasNext()){
-            String nombre_cliente = it.next().getName();
-            System.out.println("Nombre cliente: " + nombre_cliente);
+        //Agregando en otras posiciones: mejor con iteradores
+        //tenemos ListIterator para listas
 
-            String n_cuenta = it.next().getN_cuenta(); //esto es un error pues al llamar next() estamos llamando al siguiente elemento en la coleccion que no es el dato que buscamos.
-        }*/
+
+
+
 
     }
 }
