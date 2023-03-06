@@ -1,9 +1,11 @@
+import java.util.Comparator;
+
 /**
  * Articulo ordena los articulos en función del num del articulo, para ello sobreescribimos el método compareTo de la Interfaz Comparable: Así lo hace la clase String pero por orden alfabetico.
  */
 
-public class Articulo implements Comparable<Articulo> {
-
+public class Articulo implements Comparable<Articulo>, Comparator<Articulo> {
+    public Articulo(){};
     public Articulo(int num, String desc) {
         numero_articulo = num;
         descripcion = desc;
@@ -21,4 +23,13 @@ public class Articulo implements Comparable<Articulo> {
 
     private int numero_articulo;
     private String descripcion;
+
+    @Override
+    public int compare(Articulo o1, Articulo o2) {
+        //return 0;
+        String descripcionA = o1.getDescripcion();
+        String descripcionB = o2.getDescripcion();
+
+        return descripcionA.compareTo(descripcionB);
+    }
 }
