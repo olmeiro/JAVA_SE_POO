@@ -2,7 +2,7 @@ package Model;
 
 import org.w3c.dom.ls.LSOutput;
 
-public class User {
+public abstract class User {
     private int id;
     private String name;
     private String email;
@@ -62,6 +62,10 @@ public class User {
 
     @Override
     public String toString() {
-        return "Model.User: " + name + ", Email: " + email + "\nAddrees: "+ address + ".Phone: " + phoneNumber;
+        return "Model.User: " + name + ", Email: " + email + "\nAddrees: " + address + ".Phone: " + phoneNumber;
     }
+
+    //método abstracto
+    //Sólo dejamos el método declarado
+    public abstract void showDataUser();
 }

@@ -1,7 +1,4 @@
-import Model.AppointmentDoctor;
-import Model.Doctor;
-import Model.IScheduleable;
-import Model.Patient;
+import Model.*;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -32,6 +29,18 @@ public class Main {
         AppointmentDoctor appointmentDoctorSchedule = new AppointmentDoctor();
         appointmentDoctorSchedule.schedule(new Date(2023, 12, 21), "10:00");
 
+        //ya no podemos crear objetos de tipo User:
+        //User user = new User() {}
+        //Lo sigte es un tipo de polimorfismo_user adquiere el comportamiento que le dió el objeto doctor.
+        System.out.println("===================Doctor======================");
+        User user = new Doctor("Anahi", "ana@naa.com");
+        user.showDataUser();
+
+        System.out.println("=================Paciente===================");
+        User userPaciente = new Patient("Anahi", "ana@naa.com");
+        userPaciente.showDataUser();
+
+        //Nota: el código anterior muestra una especie de polimorfismo donde el comportamiento lo dicta la clase hija. Recordar que las clases abstract no se instancian.
 
     }
 }
