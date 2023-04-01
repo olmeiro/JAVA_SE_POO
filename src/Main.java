@@ -42,5 +42,27 @@ public class Main {
 
         //Nota: el código anterior muestra una especie de polimorfismo donde el comportamiento lo dicta la clase hija. Recordar que las clases abstract no se instancian.
 
+        //Clases Anónimas: al escribir new damos ctrl + esp:
+        //ahora sobreescribimos el método de la clase abstracta:
+        User user1 = new User("Anahi", "ana@com") {
+            @Override
+            public void showDataUser() {
+                System.out.println("\nDoctor");
+                System.out.println("Hospital Cruz Verde");
+                System.out.println("Departamento: pediatría");
+            }
+        };
+
+        //llamamos el método abstracto:
+        user1.showDataUser();
+
+//        IScheduleable ischeduleable = new IScheduleable() {
+//            @Override
+//            public void schedule(Date date, String time) {
+//
+//            }
+//        };
+//        IScheduleable ischeduleable1 = new AppointmentDoctor();
+//        ischeduleable1.schedule("10/02/2023","10:00");
     }
 }
