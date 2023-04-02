@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class UIDoctorMenu {
 
-    public static ArrayList<Doctor> doctorsAvailableAppointmets;
+    public static ArrayList<Doctor> doctorsAvailableAppointments = new ArrayList<>();
     public static void showDoctorMenu() {
         int response = 0;
         do {
@@ -24,19 +24,18 @@ public class UIDoctorMenu {
 
             switch (response){
                 case 1:
+                    showAddAvailableAppointmentsMenu();
                     break;
                 case 2:
                     break;
                 case 0:
+                    UIMenu.showMenu();
                     break;
             }
-
-
         }while(response != 0);
-
     }
 
-    private static void showAddAvailableAppointmensMenu(){
+    private static void showAddAvailableAppointmentsMenu(){
         int response = 0;
         do{
             System.out.println();
@@ -55,7 +54,7 @@ public class UIDoctorMenu {
             if(response > 0 && response < 4){
                 //1,2,3
                 int monthSelected = response;
-                System.out.println(monthSelected + " . " + UIMenu.MONTHS[monthSelected]);
+                System.out.println(monthSelected + " . " + UIMenu.MONTHS[monthSelected - 1]);
                 System.out.println("Insert the date available: [dd/mm/yyyy]");
                 String date = sc.nextLine();
 
@@ -78,15 +77,15 @@ public class UIDoctorMenu {
                 checkDoctorAvailableAppointments(UIMenu.doctorLogged);
 
                 //arreglo de doctores con fecha disponibles
-            }else if(response ==0){
+            }else if(response == 0){
                 showDoctorMenu();
             }
         }while(response != 0);
     }
 
     private static void checkDoctorAvailableAppointments(Doctor doctor) {
-        if(doctor.getAvailableAppointments().size() > 0 && !doctorsAvailableAppointmets.contains(doctor)) { //si tiene citas y no existe el doctor en la lista
-            doctorsAvailableAppointmets.add(doctor);
+        if(doctor.getAvailableAppointments().size() > 0 && !doctorsAvailableAppointments.contains(doctor)) { //si tiene citas y no existe el doctor en la lista
+            doctorsAvailableAppointments.add(doctor);
         }
     }
 }

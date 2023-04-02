@@ -13,11 +13,11 @@ import java.util.Date;
  */
 public class Doctor extends User {
     private String speciality;
+    private ArrayList<AvailableAppointment> availableAppointments = new ArrayList<>();
+
 
     public Doctor(String name, String email) {
         super(name, email);
-        System.out.println("El nombre del Model.Doctor asignado es: " + name);
-        this.speciality = speciality;
     }
 
     public void setSpeciality(String speciality) {
@@ -39,7 +39,6 @@ public class Doctor extends User {
         System.out.println("Departamento: Oncología");
     }
 
-    ArrayList<AvailableAppointment> availableAppointments = new ArrayList<>();
     public void addAvailableAppointment( String date, String time) {
         availableAppointments.add(new Doctor.AvailableAppointment(date, time));
     }
@@ -72,10 +71,10 @@ public class Doctor extends User {
             this.id = id;
         }
 
-        public Date getDate() {
+        public Date getDate(String DATE) {
             return date;
         }
-        public String getDate(String DATE) {
+        public String getDate() {
             return format.format(date);
         }
 
